@@ -4,21 +4,37 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <!--
+        开发规范:
+            变量和方法名认为规定：变量和方法名一定具有意义， 变量使用名词，方法使用动词
+            JS的认为规范：构造函数变量名 首字母 大写
+                        私有属性和方法以 _ 开头 （提示开发者该属性和方法不能外部直接调用）
+    -->
+    <!--
         Vue 核心库装载后，提供的全局Vue实际上是一个JS环境下对象构造器函数
         页面使用时需要通过new关键字创建基于Vue构造器的实例对象
      -->
     <script src="./js/vue.js"></script>
+    <!-- 默认关闭了调试和日志功能  -->
+    <!--<script src="./js/vue.min.js"></script>-->
     <script>
+        // H5新增 vm->el
+        // document.querySelector(el);
+        // document.querySelectorAll(el);
+
         window.onload = function() {
             var vm = new Vue({
                 // key: value
                 // 该配置项key的取值为 Vue框架定义的具有特定意义的相关属性
                 // el: element select DOM选择器
                 //    取值： string ==>符合CSS元素选择器语法规范的字符串
-                el: '#app', // vue实例和页面容器的关联
-                // 实例的书仓库
+                // el: '#app', // vue实例和页面容器的关联
+                el: '.aaa', // 只针对第一个匹配的元素生效 dom.querySelect()
+                // 实例的数据仓库
+                //      提供给开发者定义自定义变量的代码区域
+                //      被定义在数据仓库中的变量， 可以在当前实例的容器范围内使用
                 data: {
-                    msg: 'msg变量'
+                    msg: 'msg变量',
+                    aaa: 20
                 }
             });
             console.log(vm)
@@ -26,11 +42,19 @@
     </script>
 </head>
 <body>
-    <div id="app">
-        <!--插值表达式-->
+    <div id="app" class="aaa">
+        <!--
+            插值表达式： 将对应该容器实例中，数据仓库里的变量取值到页面
+         -->
         <h4>{{ msg }}</h4>
         <!-- 指令 -->
         <input type="text" v-model="msg">
+        <hr>
+        <p>{{aaa}}</p>
+    </div>
+    <div class="aaa">
+        <h3>{{msg}}</h3>
+        <p>{{aaa}}</p>
     </div>
 </body>
 </html>

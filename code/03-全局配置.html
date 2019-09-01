@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./js/vue.js"></script>
+    <script>
+        // Vue.config.productionTip = false; // 控制控制台的日志功能
+        Vue.config.silent = true; // 开启控制台告警信息
+    </script>
+</head>
+<body>
+    <div id="app">
+        <h1>{{ msg }}</h1>
+        <ul>
+            <li v-for="(item, i) in arr" key="aaa">{{ item }}</li>
+        </ul>
+    </div>
+</body>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            msg: '变量',
+            arr: [1,2,3,4]
+        }
+    })
+</script>
+</html>
