@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <!--
+        html 标签中可以定义哪些数据类型值？
+            html页面无论运行环境发生什么变化，被展示的数据最终都以字符串形式呈现
+    -->
+    <div id="app">
+        <!--
+            基本用法： {{ 变量名称 }} 进行数据获取和展示
+            取值范围： 当前实例对应容器的数据仓库中的变量
+            取值类型： any
+            vue框架对插值表达式取值的变量 作为字符串转换操作==>vue核心语法重新定义了toString方法
+            + null 和 undefined最终会以''字符串方式输出
+            + Array 和 [object Object] 会使用JSON.stringify()
+            + 除了上述数据其他数据一律使用 强制类型转换 String()
+        -->
+        <p>string: {{ msg }}</p>
+        <p>number: {{ num }}</p>
+        <p>boolean: {{ flag }}</p>
+        <p>array: {{ arr }}</p>
+        <p>Object: {{ user }}</p>
+        <p>null: ->{{arg1}}<-</p>
+        <p>undefined: ->{{arg2}}<-</p>
+        <p>Image: ->{{imgDom}}<-</p>
+    </div>
+</body>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            msg: '测试数据',
+            num: 100,
+            flag: true,
+            arr: [1, 2, 3, 4],
+            user: {
+                name: 'tom',
+                age: 23
+            },
+            arg1: null,
+            arg2: undefined,
+            imgDom: new Image()
+        }
+    })
+</script>
+</html>
