@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Docoment</title>
+    <script>
+        var msg = "msg变量";
+
+        window.onload = function() {
+            var h4Dom = document.getElementById("h4Dom");
+            var inputDom = document.getElementById("inputDom");
+
+            h4Dom.innerHTML = msg;
+            inputDom.value = msg;
+
+            // 为JS DOM对象进行动态的事件绑定
+            inputDom.addEventListener("input", function() {
+                // addEventListener 中绑定的方法，方法中this指向当前DOM
+                // console.log(this.value)
+                msg = this.value;
+                h4Dom.innerHTML = msg;
+            });
+        }
+    </script>
+</head>
+<body>
+    <div>
+        <h4 id="h4Dom"></h4>
+        <!--
+            input 事件
+            输入文本框的值发生改变后， 直接出发的事件
+        -->
+        <input type="text" value="" id="inputDom">
+    </div>
+</body>
+</html>
