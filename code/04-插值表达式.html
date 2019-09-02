@@ -28,6 +28,55 @@
         <p>null: ->{{arg1}}<-</p>
         <p>undefined: ->{{arg2}}<-</p>
         <p>Image: ->{{imgDom}}<-</p>
+        <p>Date: ->{{day}}<-</p>
+        <!--
+            vue的插值表达式可以直接，以JS语法调用匿名变量
+        -->
+        <p>number匿名变量： {{100}} </p>
+        <p>string匿名变量： {{ '字符串' }} </p>
+        <p>boolean匿名变量： {{ true }} </p>
+        <p>array匿名变量： {{ [1,2,3,4] }} </p>
+        <p>object匿名变量： {{ {a: 1, b: 2} }} </p>
+        <p>Data匿名变量： {{ new Date() }} </p>
+        <p>对象中的属性： {{ user.age }} </p>
+        <p>数组元素： {{ arr[0] }} </p>
+        <!--
+            插值表达式可取值： JS表达式
+            + 在插值表达式的定义范围内，可以直接进行简单的js运算
+                - 四则运算
+                - 逻辑运算
+                - 比较运算
+                - 赋值运算
+                - 三目运算
+            * 总结： 插值表达式在vue环境下运算时保留原变量类型， 当运算结束后向页面输出时转换为字符串类型
+         -->
+        <p>四则： {{ 1 + 1 }}</p>
+        <p>四则： {{ num + 1 }}</p>  <!-- “100” + 1 = “1001” -->
+        <p>逻辑： {{ flag && false }}</p>
+        <p>比较： {{ num < 99 }}</p>
+        <!-- 修改对应变量 -->
+        <p>赋值： {{ msg = '新字符串' }}</p>
+        <p>三目： {{ flag ? '真' : '假' }}</p>
+        <!--
+            JS内置对象
+            比如 Math
+        -->
+        <p>Math: {{ Math }}</p>
+        <p>Math: {{ Math.pow(2, 2) }}</p>
+        <p>Math: {{ Math.random() }}</p>
+        <p>Math: {{ Math.PI }}</p>
+        <!--
+            插值表达式使用 标签格式字符串
+                + 插值表达式实际上是通过调用 textContent 方式向标签中定义数据变量
+                + textContent 和 innerText 在标签格式字符串处理上效果一样
+                    - innerText 当文本中出现\n会将 \n 替换为 <br> ： 称文本解析属性
+                    - textContent 当文本中出现 \n 直接保留特性向页面输出
+                innerHTML
+                innerText
+        -->
+        <div>
+            {{ htmlStr }}
+        </div>
     </div>
 </body>
 <script>
@@ -44,7 +93,12 @@
             },
             arg1: null,
             arg2: undefined,
-            imgDom: new Image()
+            imgDom: new Image(),
+            day: new Date(),
+            // 不要使用JS内置关键字
+            // Math: 'Vue实例自定义的math'
+            htmlStr: "<h3><h3>标签</h3>",
+            str: 'aaaa\nbbbb\n\tcccc'
         }
     })
 </script>
