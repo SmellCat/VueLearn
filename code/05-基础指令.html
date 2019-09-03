@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./js/vue.js"></script>
+</head>
+<!--
+    Vue 1.0 版本可以绑定body
+    Vue 2.0 版本不可以绑定body
+ -->
+<body>
+    <p class="a b c" name=tom></p>
+    <!-- 无需取值即可使用功能的属性叫做boolean类型值 -->
+    <input type="text" disabled>
+    <div id="app">
+        <!-- v-text 等效于 插值表达式 -->
+        <p>msg: {{ msg }}</p>
+        <p v-text="'msg' + msg"></p>
+        <p v-text=msg></p>
+        <!--
+            HTML规范中并不强制要求 标签属性取值一定要定义 引号
+        -->
+        <hr>
+        <!-- v-html -->
+        <p>{{ htmlStr }}</p>
+        <p v-text="htmlStr"></p>
+        <p v-html="htmlStr"></p>
+        <!-- v-pre  不是HTML的pre标签功能
+            v-pre指令用于限定当前属性编订的标签和标签内部的vue语法不会被执行
+        -->
+        <pre>aaaadf
+            fafa
+        </pre>
+        <p><span v-pre>{{ msg }} 是vue插值表达式取值语法， msg值为：</span> {{ msg }}</p>
+        <hr>
+        <p>{{ msg }}</p>
+        <p v-pre>{{ msg }}</p>
+        <!--
+            v-once 修饰的标签内部vue语法可以正常执行一次
+            当第一次执行完成后，内部的vue所有语法彻底失效
+        -->
+        <p v-once>{{ msg }}</p>
+    </div>
+</body>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            msg: '变量msg',
+            htmlStr: "<h3>html格式字符串</h3>"
+        }
+    })
+</script>
+</html>
