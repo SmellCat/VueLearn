@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./js/vue.js"></script>
+    <style>
+        /* CSS 的属性选择器 == 查找具有特定属性的标签元素 */
+        [v-cloak], [v-text] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <p v-text="msg">aaaa</p>
+        <p v-cloak>{{ msg }}</p>
+    </div>
+</body>
+<script>
+    setTimeout(function() {
+        new Vue({
+            el: '#app',
+            data: {
+                msg: '测试数据'
+            }
+        })
+    }, 5000)
+
+</script>
+</html>

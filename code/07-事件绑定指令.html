@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./js/vue.js"></script>
+    <script>
+        function show(e) {
+            console.log("show", e);
+        }
+        function print(e) {
+            console.log("print", e);
+        }
+        window.onload = function () {
+            var btnDom = document.getElementById("btn1");
+            // 为指定DOM元素增加事件关联
+            // eventName 事件名
+            // callback 事件触发的执行函数
+            // options 事件行为描述配置（事件冒泡， 事件捕获， 默认事件）
+            // btnDom.addEventListener(eventName, callback, [,options]);
+            btnDom.addEventListener("click", function(e) {
+                console.log("click1")
+            })
+            btnDom.addEventListener("click", function(e) {
+                console.log("click2")
+            })
+        }
+    </script>
+</head>
+<body>
+    <!--
+        1、标签上以 on 开头的事件定义功能=>标签事件功能赋值
+    -->
+    <!--
+        静态事件绑定： 以标签属性关联事件方法
+        动态事件绑定： 以JS语法方式为元素关联事件定义
+    -->
+    <input type="button" value="按钮1" onclick="show(event)" onclick="print(event)">
+    <input type="button" value="按钮2" id="btn1">
+    <hr>
+    <div id="app">
+        <!--
+            v-on 指令的事件绑定, 采用addEventListener方式实现事件绑定
+                - 事件名用于描述绑定的事件类型
+                - 完成的事件的监听
+            + v-on 绑定的事件执行函数，必须为当前容器对应Vue示例的方法仓库中， 定义的自定义函数
+        -->
+        <input type="button" value="事件绑定1" v-on:click="show()" v-on:click="print">
+        <input type="button" value="事件绑定1" v-on:click="show(), print()">
+    </div>
+</body>
+<script>
+    new Vue({
+        el: '#app',
+        data: {},
+        methods: {
+            // key: value
+            // key 自定义方法名
+            // value 取值为Function类型， 描述该函数执行体
+            show: function() {
+                console.log('vue中的自定义方法show')
+            },
+            print: function() {
+                console.log('print')
+            }
+        }
+    })
+</script>
+</html>
