@@ -46,13 +46,48 @@
             + v-on 绑定的事件执行函数，必须为当前容器对应Vue示例的方法仓库中， 定义的自定义函数
         -->
         <input type="button" value="事件绑定1" v-on:click="show()" v-on:click="print">
-        <input type="button" value="事件绑定1" v-on:click="show(), print()">
+        <!-- 事件绑定的取值方式 -->
+        <!--
+            同事件类型的多处理函数的绑定方式， 执行先后取决于定义方法的先后
+                1、在事件绑定时以 ，方式隔开多个事件
+                2、通过v-on 的取数组类型值进行定义
+         -->
+        <!--
+            emitEvent() {
+                print();
+                show();
+            }
+            通过一个方法封装给addEventListener
+        -->
+        <input type="button" value="事件绑定2" v-on:click="show(), print()">
+        <input type="button" value="事件绑定3" v-on:click="[show(), print()]">
+        <hr>
+        <!--
+            不同类型的事件处理函数绑定，执行先后取决于事件的调用先后
+                1、直接在标签上以vue 事件绑定语法进行多次绑定即可
+                2、通过 v-on 的取对象类型值进行定义
+                    - 当v-on取值为对象时，不能使用 参数 修饰事件类型
+                    - key描述事件类型， value用于指定事件处理函数的名称（**不能加括号**）
+        -->
+        <input type="button" value="事件绑定4" v-on:click="clickFun()" v-on:mousedown="mousedownFun()">
+        <input type="button" value="事件绑定5" v-on="{ click: clickFun, mousedown: mousedownFun}">
+        <hr>
+        <!--
+            行内表达式， 事件绑定的行内表达式一定是一个赋值表达式
+        -->
+        <p>msg: {{ msg }}</p>
+        <input type="button" value="修改变量msg的值" @click="setMsg()">
+        <input type="button" value="修改变量msg的值" @click="msg = '新值'">
+        <!--<input type="button" value="修改变量msg的值" @click="msg">-->
+        <input type="button" value="修改变量msg的值" @click="msg + 'aaaaa'">
     </div>
 </body>
 <script>
     new Vue({
         el: '#app',
-        data: {},
+        data: {
+            msg: '旧值'
+        },
         methods: {
             // key: value
             // key 自定义方法名
@@ -61,7 +96,23 @@
                 console.log('vue中的自定义方法show')
             },
             print: function() {
-                console.log('print')
+                console.log('vue中的自定义方法print')
+            },
+            // ES6 提供对象定义简写方式
+            // 1、当定义的属性取值为匿名函数时可以直接简写为 属性名(){}
+            // 2、定义的属性名和取值变量名名称一致，可以直接简写属性名
+            clickFun() {
+                console.log("clickFun")
+            },
+            mousedownFun() {
+                console.log("mousedownFun")
+            },
+            // setMsg:() => {
+            setMsg() {
+                // console.log(this); // vue源码中，将vue实例对象的 **一级** 箭头函数通过call方式 将this指向了window
+                // 1、vue将数据仓库和方法仓库中定义值， 直接构建在了当前vue实例的根属性上
+                // console.log("setMsg", this.msg);
+                this.msg = "新值"
             }
         }
     })

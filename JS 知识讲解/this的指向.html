@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        // JS环境下的this:
+        //      this被定义在非箭头函数中时，this是当前方法的调用者对象。
+        //      this被定义在箭头函数中时， this指向与上一级非箭头函数的this, 最后直到window
+
+        // JS环境的this指向于方法执行上下文 (上面的不太严谨)
+        //      上下文: 上下级的代码定义关系
+        //      new 关键字会构建新的上下文关系
+        //      箭头： 不具有this指向，箭头函数中的this指向于上一级非箭头函数或对象的上下文
+        //      bind apply call 改变上下文关系
+        var user = {
+            fun: function() {
+                console.log(this); // fun的上下文是user对象， this就是user对象
+            }
+        };
+
+        var User = function(name) {
+            // this.fun = function() {}
+            // 构造函数中的this 会指向于当前构造器对应的实例
+            // this.name = name;
+            console.log(this);
+            this.fun1 = function() {
+                console.log("fun1: ", this);
+            };
+            this.fun2 = () => {
+                console.log("fun2", this);
+            }
+        };
+        var u = new User("tom");
+    </script>
+</head>
+<body>
+
+</body>
+</html>
