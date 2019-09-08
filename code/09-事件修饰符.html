@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <textarea cols="30" rows="10" @keyup="inputFun($event)"></textarea>
+        <hr>
+        <textarea cols="30" rows="10" @keyup.13="printUserInput($event.target.value)"></textarea>
+        <textarea cols="30" rows="10" @keyup.Enter="printUserInput($event.target.value)"></textarea>
+        <hr>
+        <textarea cols="30" rows="10" @keyup.left="printUserInput($event.target.value)"></textarea>
+        <textarea cols="30" rows="10" @keyup.right="printUserInput($event.target.value)"></textarea>
+        <textarea cols="30" rows="10" @keyup.up="printUserInput($event.target.value)"></textarea>
+        <textarea cols="30" rows="10" @keyup.down="printUserInput($event.target.value)"></textarea>
+        <hr>
+        <input type="button" value="按钮" @click="printFun()">
+        <!--
+            once ==> removeEventLister 功能封装
+        -->
+        <input type="button" value="一次事件" @click.once="printFun()">
+        <hr>
+        <!--
+            vue 的事件绑定，可以只用于描述 触发限制， 无需定义回调函数
+        -->
+        <a href="https://www.baidu.com" @click.prevent>百度</a>
+    </div>
+</body>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+          msg: ''
+        },
+        methods: {
+            printFun() {
+                console.log("事件触发");
+            },
+            inputFun(e) {
+                // console.log(e)
+                // 当敲击回车键时才进行输出
+                if(e.keyCode === 13) {
+                    console.log(e.target.value);
+                }
+                if(e.keyCode === 65 && e.ctrlKey) {
+                    this.msg = e.target.value;
+                }
+            },
+            printUserInput(arg) {
+                console.log(arg)
+            }
+        }
+    })
+</script>
+</html>

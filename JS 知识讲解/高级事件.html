@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        var a = "";
+        function inputFun(arg, e) {
+            console.log(e)
+            // 当敲击回车键时才进行输出
+            if(e.keyCode === 13) {
+                console.log(arg);
+            }
+            if(e.keyCode === 65 && e.ctrlKey) {
+                a = arg;
+            }
+        }
+
+        // 1、默认事件
+        //      HTML和JS 为一些特定标签赋予的指定功能的事件绑定 a标签
+        //          a标签   input[type=submit] input[type=reset] form  button[type=submit] button[type=reset]
+        function stopFun(e) {
+            console.log("阻止默认事件", e);
+            e.preventDefault();
+        }
+        // 2、事件冒泡
+
+        // 3、事件捕获
+    </script>
+</head>
+<body>
+    <textarea cols="30" rows="10" onkeyup="inputFun(this.value, event)"></textarea>
+    <hr>
+    <a href="https://www.baidu.com">百度</a>
+    <a href="./this的指向.html">this</a>
+    <hr>
+    <!-- 绑定事件 定义 return false 可以完成默认事件阻止操作 -->
+    <a href="./this的指向.html" onclick="return false">this</a>
+    <a href="https://www.baidu.com" onclick="stopFun(event)">百度</a>
+</body>
+</html>
