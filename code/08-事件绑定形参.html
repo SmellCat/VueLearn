@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./js/vue.js"></script>
+    <script>
+        function inputFun(arg) {
+            var dom = document.getElementById("aa");
+            console.log("input输入", dom.value, arg);
+        }
+        function changeFun() {
+            console.log("change输入");
+        }
+        function inputEvent(e) {
+            console.log("event", e)
+        }
+    </script>
+</head>
+<body>
+    <!-- 定义的方法中 形参 this 指向于当前的 dom对象-->
+    <input type="text" id="aa" oninput="inputFun(this.value)" onchange="changeFun()">
+    <hr>
+    <!--
+        HTML 和 JS 构成中 event 事件源对象
+        event.target  ==> 记录当前事件触发的DOM元素
+     -->
+    <input type="button" value="点击事件" onclick="inputEvent(event)">
+    <input type="text" oninput="inputEvent(event)">
+    <input type="text" oninput="inputEvent(event.target.value)">
+    <input type="text" oninput="inputEvent">
+    <hr>
+    <!--
+        js的 形参 和 实参
+            形参： 就是JS方法定义时， 秘书的该方法所要接收的参数的参数名称
+            实参： JS方法执行时传入的固定参数
+     -->
+    <div id="app">
+        <!--
+            vue事件绑定时的形参传递，执行方法时可以根据需求直接传入实参值
+                1、vue的事件绑定传入的方法参数，可以是符合JS语法习惯的相关值和表达式
+                2、vue的事件绑定可以直接以 当前实例数据仓库变量作为参数
+        -->
+        <input type="button" value="输出info变量-btn1" @click="printInfo('btn1')">
+        <input type="button" value="输出info变量-btn2" @click="printInfo('btn2')">
+        <input type="button" value="输出info变量-btn3" @click="printInfo('btn3')">
+        <hr>
+        <input type="button" value="输出Math对象" @click="printArgs( Math )">
+        <input type="button" value="每次执行数据一个随机数据" @click="printArgs( Math.random() )">
+        <hr>
+        <input type="button" value="输出info" @click="printArgs( info )">
+        <input type="button" value="输出msg" @click="printArgs( msg )">
+        <hr>
+        <!-- vue实例容器中的标签，绑定的事件如果传入this，此时的this恒定指向于 window 对象-->
+        <input type="button" value="传入形参this" @click="printThis(this)">
+        <hr>
+        <!--
+            vue事件默认从vue实例的数据仓库和方法中取对应的变量
+            vue将常用的事件源对象 重新定义为 $event 等同于 普通 JS中的event事件源
+        -->
+        <input type="text" @input="printValue( $event )">
+        <input type="text" @input="printValue( $event.target )">
+        <input type="text" @input="printValue( $event.target.value )">
+        <!--
+            vue的事件绑定 可以不用定义 事件名称后的括号
+            ==> 这种事件绑定方式，是vue提供给组件化数据传递使用的事件绑定方式
+        -->
+        <input type="button" value="事件绑定" @click="printMsg()">
+        <input type="button" value="事件绑定" @click="printMsg">
+    </div>
+</body>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            info: "默认值",
+            msg: "msg默认值"
+        },
+        methods: {
+            printMsg() {
+                console.log("事件触发");
+            },
+            printInfo(arg) {
+                console.log(arg, this.info)
+            },
+            printArgs(arg) {
+                console.log(arg)
+            },
+            printThis(arg) {
+                console.log(arg);
+            },
+            printValue(arg){
+                console.log("用户输入值", arg);
+            }
+        }
+    })
+</script>
+</html>
