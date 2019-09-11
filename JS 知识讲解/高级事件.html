@@ -27,7 +27,9 @@
             height: 100px;
             border: 1px solid black;
         }
-
+        body {
+            margin-bottom: 600px;
+        }
     </style>
     <script>
         var a = "";
@@ -109,8 +111,9 @@
     var div2Dom = document.getElementById("div2");
     var div3Dom = document.getElementById("div3");
     var div4Dom = document.getElementById("div4");
-    div1Dom.addEventListener("click", function() {
+    div1Dom.addEventListener("click", function(event) {
         console.log(this.className);
+        event.stopPropagation();
     }, true);
     div2Dom.addEventListener("click", function() {
         console.log(this.className);
@@ -121,6 +124,46 @@
     div4Dom.addEventListener("click", function() {
         console.log(this.className);
     }, true);
+</script>
+<hr>
+<!--
+    事件代理 ： 将子元素的相同功能事件借助 事件冒泡机制 实现父元素统一事件管理, 元素处理由event.target执行
+    事件委托 : 将子元素的相同功能事件借助 事件捕获机制 实现父元素统一事件管理, 元素处理由event.target执行
+-->
+<!--ul>(li>{li$})*5-->
+<!--<ul id="list">-->
+    <!--<li>li1</li>-->
+    <!--<li>li2</li>-->
+    <!--<li>li3</li>-->
+    <!--<li>li4</li>-->
+    <!--<li>li5</li>-->
+<!--</ul>-->
+<ul id="list"></ul>
+<input type="button" value="+" onclick="addLi()">
+<script>
+    // 如果动态渲染的元素数组数量级较大，如何提高页面事件性能
+    var arr = [1, 2, 3, 4, 5];
+    var ulDom = document.getElementById("list");
+    ulDom.addEventListener("click", function(event) {
+        console.log("ul事件", event.target.innerHTML);
+        event.stopPropagation();
+    }, true)
+    for (let i = 0; i <  arr.length ; i++) {
+        var liDom = document.createElement("li");
+        liDom.innerHTML = `li${i}`;
+        // liDom.addEventListener('click', function() {
+        //     console.log(this.innerHTML);
+        // });
+        ulDom.appendChild(liDom);
+    }
+    function addLi() {
+        var liDom = document.createElement("li");
+        liDom.innerHTML = `li${Math.random()}`;
+        // liDom.addEventListener('click', function() {
+        //     console.log(this.innerHTML);
+        // });
+        ulDom.appendChild(liDom);
+    }
 </script>
 </body>
 </html>
