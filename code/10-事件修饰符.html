@@ -68,13 +68,16 @@
             </div>
         </div>
         <hr>
-        <ul>
+        <!-- 修饰符可以连续调用 -->
+        <ul @click.capture="printFun('事件传递', $event)">
             <li>li1</li>
             <li>li2</li>
             <li>li3</li>
             <li>li4</li>
             <li>li5</li>
         </ul>
+        <hr>
+        <textarea name="" cols="30" rows="10" @keyup.17="printStr($event)"></textarea>
     </div>
 </body>
 <script>
@@ -84,8 +87,11 @@
             msg: "测试数据"
         },
         methods: {
-            printFun(name) {
-                console.log(name);
+            printFun(name, e) {
+                console.log(name, e.target.innerHTML);
+            },
+            printStr(e) {
+                console.log(e)
             }
         }
     });
