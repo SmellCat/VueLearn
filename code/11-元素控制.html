@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1 v-show=" true ">h1标签1</h1>
+        <h1 v-show=" false ">h1标签2</h1>
+        <h1 v-show=" '' ">h1标签3</h1>
+        <h1 v-show=" 's' ">h1标签4</h1>
+        <h1 v-show=" 0 ">h1标签5</h1>
+        <h1 v-show=" 1 ">h1标签6</h1>
+        <h1 v-show=" [] ">h1标签7</h1>
+        <h1 v-show=" {} ">h1标签8</h1>
+        <hr>
+        <h1 v-show=" flag ">元素切换标签1</h1>
+        <p v-show=" !flag ">元素切换标签2</p>
+        <!--<input type="button" value="显示隐藏" @click=" flag = !flag">-->
+        <hr>
+        <h1 v-if=" flag ">元素切换标签1</h1>
+        <p v-if=" !flag ">元素切换标签2</p>
+        <input type="button" value="显示隐藏" @click=" flag = !flag">
+        <hr>
+        <p v-if="num < 10">小于10</p>
+        <p v-else-if="num == 10">等于10</p>
+        <p v-else>大于10</p>
+        <hr>
+        <p v-if="num < 10">小于10</p>
+        <p v-if="num == 10">等于10</p>
+        <p v-if="num > 10">大于10</p>
+        <hr>
+        <p v-show="num < 10">小于10</p>
+        <p v-show="num == 10">等于10</p>
+        <p v-show="num > 10">大于10</p>
+        <input type="button" value="+" @click=" num = num + 1">
+        <input type="button" value="1" @click=" num = num - 1">
+    </div>
+</body>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            flag: true,
+            num: 10
+        }
+    })
+</script>
+</html>
