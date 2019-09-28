@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <ul>
+            <li v-for="(item, index) in arr">
+                <input type="checkbox">
+                {{ item }}
+            </li>
+        </ul>
+        <hr>
+        <ul>
+            <li v-for="(item, index) in arr" :key="'aaa'+item">
+                <input type="checkbox">
+                {{ item }}
+            </li>
+        </ul>
+        <input type="button" value="addItem" @click="addItem()">
+        <input type="button" value="addItem2" @click="addItem2()">
+        <hr>
+        <ul>
+            <li v-for="(item, index) in arr">
+                <input type="checkbox">
+                {{ item }}
+            </li>
+        </ul>
+    </div>
+</body>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            arr: [1, 2, 3, 4]
+        },
+        methods:{
+            addItem() {
+                this.arr.push(Math.random())
+            },
+            addItem2() {
+                this.arr.unshift(Math.random())
+            }
+        }
+    })
+</script>
+</html>

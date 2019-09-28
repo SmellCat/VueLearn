@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c0e16b83-adf5-4542-9900-e12119d42779" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/code/12-v-for循环.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/13-v-for的辅助属性key.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
@@ -20,34 +20,22 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/JS 知识讲解/高级事件.html">
+        <entry file="file://$PROJECT_DIR$/code/12-v-for循环.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="156">
-              <caret line="33" column="12" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="12" />
+            <state relative-caret-position="1066">
+              <caret line="43" column="18" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="18" />
               <folding>
-                <element signature="n#style#0;n#head#0;n#html#0;n#!!top" />
+                <element signature="n#ul#2;n#div#0;n#body#0;n#html#0;n#!!top" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/code/11-元素控制.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1118">
-              <caret line="43" column="19" selection-start-line="43" selection-start-column="19" selection-end-line="43" selection-end-column="19" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/code/12-v-for循环.html">
+        <entry file="file://$PROJECT_DIR$/code/13-v-for的辅助属性key.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="186">
-              <caret line="46" column="10" selection-start-line="46" selection-start-column="10" selection-end-line="46" selection-end-column="10" />
-              <folding>
-                <element signature="n#ul#2;n#div#0;n#body#0;n#html#0;n#!!top" />
-              </folding>
+            <state relative-caret-position="520">
+              <caret line="20" column="17" lean-forward="true" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -159,6 +147,7 @@
         <option value="$PROJECT_DIR$/code/10-事件修饰符.html" />
         <option value="$PROJECT_DIR$/code/11-元素控制.html" />
         <option value="$PROJECT_DIR$/code/12-v-for循环.html" />
+        <option value="$PROJECT_DIR$/code/13-v-for的辅助属性key.html" />
       </list>
     </option>
   </component>
@@ -251,7 +240,10 @@
       <workItem from="1568341684967" duration="3323000" />
       <workItem from="1568442855484" duration="4892000" />
       <workItem from="1568641213565" duration="3360000" />
-      <workItem from="1568813026953" duration="2639000" />
+      <workItem from="1568813026953" duration="2839000" />
+      <workItem from="1568903222964" duration="2262000" />
+      <workItem from="1569333668520" duration="1191000" />
+      <workItem from="1569634702179" duration="227000" />
     </task>
     <task id="LOCAL-00001" summary="03">
       <created>1567329466538</created>
@@ -337,11 +329,18 @@
       <option name="project" value="LOCAL" />
       <updated>1568642931812</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="12 v-for循环">
+      <created>1568817537105</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1568817537105</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75525000" />
+    <option name="totallyTimeSpent" value="79435000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1912" y="84" width="1382" height="744" extended-state="6" />
@@ -382,7 +381,8 @@
     <MESSAGE value="事件冒泡 代理 委托" />
     <MESSAGE value="10 事件修饰符" />
     <MESSAGE value="11 元素控制" />
-    <option name="LAST_COMMIT_MESSAGE" value="11 元素控制" />
+    <MESSAGE value="12 v-for循环" />
+    <option name="LAST_COMMIT_MESSAGE" value="12 v-for循环" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -459,13 +459,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.es5.d.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="27092">
-          <caret line="1055" column="4" selection-start-line="1055" selection-start-column="4" selection-end-line="1055" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/code/01-mvvm的基本概念.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
@@ -498,6 +491,23 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1118">
           <caret line="43" column="19" selection-start-line="43" selection-start-column="19" selection-end-line="43" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external/lib.es5.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="1267" column="4" selection-start-line="1267" selection-start-column="4" selection-end-line="1267" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/code/12-v-for循环.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1066">
+          <caret line="43" column="18" selection-start-line="43" selection-start-column="18" selection-end-line="43" selection-end-column="18" />
+          <folding>
+            <element signature="n#ul#2;n#div#0;n#body#0;n#html#0;n#!!top" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -559,13 +569,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/code/12-v-for循环.html">
+    <entry file="file://$PROJECT_DIR$/code/13-v-for的辅助属性key.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="186">
-          <caret line="46" column="10" selection-start-line="46" selection-start-column="10" selection-end-line="46" selection-end-column="10" />
-          <folding>
-            <element signature="n#ul#2;n#div#0;n#body#0;n#html#0;n#!!top" />
-          </folding>
+        <state relative-caret-position="104">
+          <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
         </state>
       </provider>
     </entry>
