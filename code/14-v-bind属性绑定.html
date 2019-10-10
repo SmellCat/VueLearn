@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./js/vue.js"></script>
+</head>
+<body>
+    <div id="app">
+        <p v-bind:id="idName">绑定ID属性</p>
+        <p :id="idName">绑定ID属性</p>
+        <input type="button" value="修改idName变量" @click="idName = '新ID值'">
+    </div>
+</body>
+<script>
+    new Vue({
+        el: '#app',
+        data: {
+            idName: 'idStr'
+        }
+    })
+</script>
+</html>
