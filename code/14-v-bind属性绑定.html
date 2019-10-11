@@ -4,19 +4,136 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <script src="./js/vue.js"></script>
+    <style>
+        .fc {
+            color: red;
+        }
+        .fs{
+            font-size: 20px;
+        }
+        .bc {
+            background-color: #cccccc;
+        }
+        .border {
+            border: 1px solid black;
+        }
+        body {
+            margin-bottom: 600px;
+        }
+        .success {
+            color: green;
+        }
+        .error {
+            color: red
+        }
+    </style>
 </head>
 <body>
+    <!--<p class="a" style="" innerHTML=""></p>-->
+    <select name="" id="">
+        <option value=""><h1>cccccc</h1></option>
+    </select>
     <div id="app">
         <p v-bind:id="idName">绑定ID属性</p>
         <p :id="idName">绑定ID属性</p>
         <input type="button" value="修改idName变量" @click="idName = '新ID值'">
+        <hr>
+        <!--
+            绑定多个属性：
+                1、单独为属性进行绑定
+                2、采用v-bind=object值的方式进行绑定
+                    - 当取值为object时不能直接使用 : 简写
+                    - 如果需要通过 object 方式进行多属性绑定，无需提供参数
+        -->
+        <p v-bind:id=" 'pid' " v-bind:name=" 'pname' ">绑定多个属性</p>
+        <p :id=" 'pid' " :name=" 'pname' ">绑定多个属性</p>
+        <p v-bind=" {id: 'pid', name: 'pname'} ">绑定多个属性</p>
+        <h3> 特殊的属性操作 boolean类型的属性、 class、 style</h3>
+        <p>boolean 类型的属性绑定</p>
+        <!--
+            v-bind 完成元素 属性定义时 绑定vue中的动态变量功能
+
+            * 对于vue未特别定义的属性，统一绑定HTML属性(attr)
+            * boolean 属性，vue 会统一使用 v-bind 绑定DOM属性 （prop）
+                - 取值为一个boolean 的结果值
+                - v-bind对于boolean类型的属性操作，不再使用 JS 的转换规则， 使用vue 定义的规则
+                    -> null、undefined 统一描述为 false                   : 没有数据
+                    -> 除 true, false , null, undefined 统一描述成 true   ：有数据
+        -->
+        <input type="text" v-bind:disabled=" flag1 "><br>
+        <input type="text" v-bind:disabled=" flag2 "><br>
+        <input type="text" v-bind:disabled=" str1 "><br>
+        <input type="text" v-bind:disabled=" str2 "><br>
+        <input type="text" v-bind:disabled=" num1 "><br>
+        <input type="text" v-bind:disabled=" num2 "><br>
+        <input type="text" v-bind:disabled=" arg1 "><br>
+        <input type="text" v-bind:disabled=" arg2 "><br>
+        <!--
+            v-bind 对 class 的绑定 通过方法处理后的属性绑定
+            1、 v-bind: class=string
+                - 使用class样式定义字符串格式
+            2、 v-bind: class=Array
+                - 以数组元素描述需要加载的样式名称， v-bind会自动循环拼接
+                - 定义数组可以哦通过 数组方法快速完成 样式操作
+            3、 v-bind: class=Object
+                - object = { key: value }
+                    + key 样式名
+                    + value取值 boolean 作用：描述当前样式是否需要被装载
+                - 通过value的boolean结果判断样式是否需要被装载
+        -->
+        <p class="fc fs bc border">class 的调用</p>
+        <p :class="classStr">class 的调用</p>
+        <p :class="classArr">class 的调用</p>
+        <input type="button" value="addBc" @click="addClassBc()">
+        <p :class="classObj">class 的调用</p>
+        <input :class="inputClassArr" type="text" @input="checkLength($event.target.value)">
+        <input :class="{ 'success': inputFlag, 'error': !inputFlag}" type="text" @input="checkLength2($event.target.value)">
     </div>
 </body>
 <script>
     new Vue({
         el: '#app',
         data: {
-            idName: 'idStr'
+            idName: 'idStr',
+            flag1: true,
+            flag2: false,
+            str1: "",
+            str2: "asdasd",
+            num1: 0,
+            num2: 1,
+            arg1: null,
+            arg2: undefined,
+            classStr: "fc fs bc border",
+            classArr: ['fc', 'fs', 'border'],
+            classObj: {
+                fc: true,
+                fs: false,
+                bc: true,
+                border: false
+            },
+            inputClassArr: [],
+            inputFlag: false
+        },
+        methods: {
+            addClassBc() {
+                this.classArr.push('bc')
+            },
+            checkLength(v) {
+                console.log(v)
+                if (v.length >=6 && v.length <= 8){
+                    this.inputClassArr.push('success')
+                } else {
+                    this.inputClassArr.push('error')
+                }
+            },
+            checkLength2(v) {
+                this.inputFlag = v.length >=6 && v.length <= 8
+                // if (v.length >=6 && v.length <= 8){
+                //     this.inputFlag = true
+                // } else {
+                //     this.inputFlag = false
+                // }
+            },
         }
     })
 </script>
