@@ -85,9 +85,19 @@
         <p :class="classStr">class 的调用</p>
         <p :class="classArr">class 的调用</p>
         <input type="button" value="addBc" @click="addClassBc()">
+        <input type="button" value="removeFC" @click="removeClassFc()">
         <p :class="classObj">class 的调用</p>
         <input :class="inputClassArr" type="text" @input="checkLength($event.target.value)">
         <input :class="{ 'success': inputFlag, 'error': !inputFlag}" type="text" @input="checkLength2($event.target.value)">
+        <!--
+             v-bind 对 style的绑定，通过方法处理后的属性绑定
+                1、v-bind: style = string
+                    - 直接绑定遵循style行内样式语法的字符串
+                2、v-bind: class = Object
+
+        -->
+        <p style="color: red; font-size: 20px">绑定行内样式</p>
+        <p :style="styleStr">绑定行内样式</p>
     </div>
 </body>
 <script>
@@ -112,14 +122,19 @@
                 border: false
             },
             inputClassArr: [],
-            inputFlag: false
+            inputFlag: false,
+            styleStr: "color: red; font-size: 20px"
         },
         methods: {
             addClassBc() {
                 this.classArr.push('bc')
             },
+            removeClassFc() {
+                this.classArr.shift('fc')
+            },
             checkLength(v) {
-                console.log(v)
+                // console.log(v)
+                // 数组设置class的动态更改要考虑增加和删除，比较麻烦。
                 if (v.length >=6 && v.length <= 8){
                     this.inputClassArr.push('success')
                 } else {
