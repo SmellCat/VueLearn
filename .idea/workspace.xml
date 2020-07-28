@@ -7,6 +7,7 @@
   <component name="ChangeListManager">
     <list default="true" id="c0e16b83-adf5-4542-9900-e12119d42779" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/14-v-bind属性绑定.html" beforeDir="false" afterPath="$PROJECT_DIR$/code/14-v-bind属性绑定.html" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -22,8 +23,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/code/14-v-bind属性绑定.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="189">
-              <caret line="139" column="24" selection-start-line="139" selection-start-column="24" selection-end-line="139" selection-end-column="24" />
+            <state relative-caret-position="226">
+              <caret line="113" column="51" selection-start-line="113" selection-start-column="51" selection-end-line="113" selection-end-column="51" />
               <folding>
                 <element signature="e#156#191#0" />
                 <element signature="e#203#243#0" />
@@ -35,11 +36,7 @@
                 <element signature="e#896#1100#0" />
                 <element signature="e#1373#1788#0" />
                 <element signature="e#2255#2723#0" />
-                <element signature="e#3194#3381#0" />
-                <element signature="e#3894#4018#0" />
-                <element signature="e#4186#4242#0" />
-                <element signature="e#4344#4376#0" />
-                <element signature="e#4631#4669#0" />
+                <element signature="n#style#0;n#p#10;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -48,17 +45,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/package.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
+            <state relative-caret-position="286">
               <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/AppData/Roaming/Typora/themes/github.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="11518">
-              <caret line="443" column="1" selection-start-line="443" selection-start-column="1" selection-end-line="443" selection-end-column="1" />
             </state>
           </provider>
         </entry>
@@ -66,7 +54,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/code/07-事件绑定指令.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1924">
+            <state relative-caret-position="754">
               <caret line="74" column="12" selection-start-line="74" selection-start-column="12" selection-end-line="74" selection-end-column="12" />
             </state>
           </provider>
@@ -185,10 +173,10 @@
     <auto-save>true</auto-save>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="118" />
-    <option name="y" value="-21" />
-    <option name="width" value="1936" />
-    <option name="height" value="1056" />
+    <option name="x" value="1912" />
+    <option name="y" value="84" />
+    <option name="width" value="1382" />
+    <option name="height" value="744" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -282,7 +270,8 @@
       <workItem from="1582118896656" duration="965000" />
       <workItem from="1594475938936" duration="598000" />
       <workItem from="1594826683127" duration="589000" />
-      <workItem from="1595739705279" duration="4794000" />
+      <workItem from="1595739705279" duration="5547000" />
+      <workItem from="1595948361903" duration="1563000" />
     </task>
     <task id="LOCAL-00001" summary="03">
       <created>1567329466538</created>
@@ -393,13 +382,13 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="103288000" />
+    <option name="totallyTimeSpent" value="105604000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="1912" y="84" width="1382" height="744" extended-state="7" />
+    <frame x="1912" y="84" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.0625" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28125" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -413,7 +402,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="8" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="10" weight="0.24775584" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.24775584" />
       <window_info anchor="bottom" id="TypeScript" order="11" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -565,17 +554,17 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$USER_HOME$/AppData/Roaming/Typora/themes/github.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="11518">
           <caret line="443" column="1" selection-start-line="443" selection-start-column="1" selection-end-line="443" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/code/07-事件绑定指令.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1924">
-          <caret line="74" column="12" selection-start-line="74" selection-start-column="12" selection-end-line="74" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -630,17 +619,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
+    <entry file="file://$PROJECT_DIR$/code/07-事件绑定指令.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        <state relative-caret-position="754">
+          <caret line="74" column="12" selection-start-line="74" selection-start-column="12" selection-end-line="74" selection-end-column="12" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/code/14-v-bind属性绑定.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="139" column="24" selection-start-line="139" selection-start-column="24" selection-end-line="139" selection-end-column="24" />
+        <state relative-caret-position="226">
+          <caret line="113" column="51" selection-start-line="113" selection-start-column="51" selection-end-line="113" selection-end-column="51" />
           <folding>
             <element signature="e#156#191#0" />
             <element signature="e#203#243#0" />
@@ -652,11 +641,7 @@
             <element signature="e#896#1100#0" />
             <element signature="e#1373#1788#0" />
             <element signature="e#2255#2723#0" />
-            <element signature="e#3194#3381#0" />
-            <element signature="e#3894#4018#0" />
-            <element signature="e#4186#4242#0" />
-            <element signature="e#4344#4376#0" />
-            <element signature="e#4631#4669#0" />
+            <element signature="n#style#0;n#p#10;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -90,14 +90,28 @@
         <input :class="inputClassArr" type="text" @input="checkLength($event.target.value)">
         <input :class="{ 'success': inputFlag, 'error': !inputFlag}" type="text" @input="checkLength2($event.target.value)">
         <!--
+        对象数组 [{}, {}, {},...]
+        数组对象 {arr1: [], arr2: []...}
+
+
              v-bind 对 style的绑定，通过方法处理后的属性绑定
                 1、v-bind: style = string
                     - 直接绑定遵循style行内样式语法的字符串
                 2、v-bind: class = Object
-
+                    - Object = {key: value}
+                        + key 样式名
+                        + value 样式对应的合法取值
+                    - 动态控制行内样式的定义
+                3、v-bind: style = Array
+                    - 组合对象行内样式 - 将两个行内样式取值对象，同时赋值给一个元素的style属性
+                    - Array = [{}, {}, ...] 对象数组
         -->
         <p style="color: red; font-size: 20px">绑定行内样式</p>
         <p :style="styleStr">绑定行内样式</p>
+        <p :style="styleObject">绑定行内样式</p>
+        <input type="button" value="addBorder" @click="addStyleObjectBorder">
+        <input type="button" value="removeColor" @click="removeStyleObjectColorr">
+        <p :style="[styleObject, styleObj2]">111111</p>
     </div>
 </body>
 <script>
@@ -123,7 +137,16 @@
             },
             inputClassArr: [],
             inputFlag: false,
-            styleStr: "color: red; font-size: 20px"
+            styleStr: "color: red; font-size: 20px",
+            styleObject: {
+                color: 'red',
+                // 'font-size': '20px',
+                fontSize: '20px',
+                border: '' // 动态设置值时，需要首先设置一个值
+            },
+            styleObj2: {
+                "background-color": '#cccccc'
+            }
         },
         methods: {
             addClassBc() {
@@ -149,6 +172,12 @@
                 //     this.inputFlag = false
                 // }
             },
+            addStyleObjectBorder() {
+                this.styleObject.border = '1px solid black'
+            },
+            removeStyleObjectColorr() {
+                this.styleObject.color = ""
+            }
         }
 
         // 测试修改
